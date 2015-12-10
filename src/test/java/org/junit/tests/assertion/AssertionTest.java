@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 import org.junit.Assert;
+import static org.junit.Assert.assertGreaterThanInt;
+import java.util.Comparator;
 import org.junit.Assert.ThrowingRunnable;
 import org.junit.ComparisonFailure;
 import org.junit.Test;
@@ -753,4 +755,25 @@ public class AssertionTest {
             }
         };
     }
+    
+    @Test
+    public void checkGreaterThan() {
+        Integer el1 = new Integer(16);
+        Integer el2 = new Integer(10);
+        MyComparator comparator = new MyComparator();
+        // Test if el1 > el2 using assertGreaterThan
+        assertGreaterThanInt(el1, el2, comparator);
+    }
+        
+    public class MyComparator implements Comparator<Integer> {
+       public int compare(Integer el1, Integer el2) {
+           if(el1.intValue() > el2.intValue())
+                { return 1; }
+            else if(el1.intValue() == el2.intValue())
+                { return 0; }
+            else
+                { return -1; }
+        }
+    }
+    
 }
