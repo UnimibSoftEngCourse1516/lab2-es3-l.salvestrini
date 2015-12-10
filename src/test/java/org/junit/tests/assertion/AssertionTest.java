@@ -1,5 +1,5 @@
 package org.junit.tests.assertion;
-
+import static org.junit.Assert.assertGreaterThan;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -753,4 +753,22 @@ public class AssertionTest {
             }
         };
     }
+    
+    @Test
+        public void checkGreaterThan() {
+            byte byte1 = 7, byte2 = 5;
+            assertGreaterThan(byte1, byte2);
+            short short1 = 4, short2 = 3;
+            assertGreaterThan(short1, short2);
+            int int1 = 5, int2 = 6;
+            assertGreaterThan(int2, int1);
+            float float1 = 3.6f, float2 = 3.2f;
+            assertGreaterThan(float1, float2);
+            double double1 = 3.6f, double2 = 3.2f;
+            assertGreaterThan(double1, double2);
+            char char1 = 'e', char2 = 'x';
+            assertGreaterThan(char2, char1);
+            String string1 = "efg", string2 = "xyz";
+            assertGreaterThan(string2, string1);
+        }
 }
