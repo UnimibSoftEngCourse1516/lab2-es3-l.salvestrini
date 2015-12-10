@@ -5,6 +5,7 @@ import org.hamcrest.MatcherAssert;
 import org.junit.internal.ArrayComparisonFailure;
 import org.junit.internal.ExactComparisonCriteria;
 import org.junit.internal.InexactComparisonCriteria;
+import static org.junit.Assert.assertGreaterThan;
 
 /**
  * A set of assertion methods useful for writing tests. Only failed assertions
@@ -1019,4 +1020,15 @@ public class Assert {
                 expectedThrowable.getSimpleName());
         throw new AssertionError(message);
     }
+    
+        // Should work for every type of number from byte to double (upcasting without loosing precision)
+        public static void assertGreaterThan(double o1, double o2) {
+            if(o1 <= o2)
+                fail(null);
+        }
+        
+        public static void assertGreaterThan(String o1, String o2) {
+            if(o2.compareTo(o1) <= 0)
+                fail(null);
+        }
 }
